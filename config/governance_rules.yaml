@@ -1,0 +1,102 @@
+ai_principle: "READ_ONLY_ALERT_ONLY"
+
+# ─── What AI is allowed to do ────────────────
+allowed_actions:
+  - read_integration_status
+  - read_integration_error_logs
+  - read_prism_dataset_status
+  - read_prism_status
+  - read_extend_app_status
+  - read_extend_status
+  - read_headcount_data
+  - analyze_errors
+  - generate_alerts
+  - generate_reports
+  - view_audit_log
+  - explain_failures
+
+# ─── Permanently blocked ─────────────────────
+blocked_forever:
+  - approve_business_process
+  - reject_business_process
+  - initiate_termination
+  - approve_termination
+  - approve_bonus
+  - modify_compensation
+  - change_job_profile
+  - update_employee_record
+  - launch_integration
+  - delete_integration
+  - modify_integration_config
+  - approve_performance_review
+  - submit_performance_review
+  - modify_payroll
+  - create_employee
+  - delete_employee
+  - change_security_access
+  - approve_any_action
+
+# ─── HTTP method restriction ─────────────────
+allowed_http_methods:
+  - GET
+
+blocked_http_methods:
+  - POST
+  - PUT
+  - PATCH
+  - DELETE
+
+# ─── Data — never send to any AI model ───────
+never_send_to_ai:
+  - social_security_number
+  - national_id_number
+  - bank_account_number
+  - salary_exact_amount
+  - date_of_birth
+  - personal_email
+  - personal_phone
+  - medical_information
+  - immigration_status
+  - tax_identification_number
+  - passport_number
+
+# ─── Data — send in masked form only ─────────
+masked_fields:
+  salary: "band_only"
+  employee_id: "last_4_digits_only"
+  phone: "masked"
+  email: "domain_only"
+
+# ─── Alert templates ─────────────────────────
+alert_templates:
+
+  integration_failure:
+    ai_action: "ALERT_ONLY"
+    action_required_by: "HRIS Analyst"
+    includes:
+      - error_details
+      - root_cause
+      - suggested_fix_steps
+      - vendor_contact
+
+  bonus_approval_pending:
+    ai_action: "ALERT_ONLY"
+    action_required_by: "Manager"
+    includes:
+      - days_pending
+      - approver_name
+      - next_step
+
+  performance_review_overdue:
+    ai_action: "ALERT_ONLY"
+    action_required_by: "Manager"
+    includes:
+      - days_overdue
+      - manager_name
+
+  termination_in_progress:
+    ai_action: "LOG_AND_ALERT_ONLY"
+    action_required_by: "HR Director"
+    includes:
+      - process_step
+      - current_status

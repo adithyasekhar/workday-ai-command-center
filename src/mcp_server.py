@@ -51,6 +51,20 @@ async def main() -> None:
                 inputSchema={"type": "object", "properties": {}},
             ),
             types.Tool(
+                name="generate_human_alert",
+                description="Generate a structured human alert for a given scenario (read-only).",
+                inputSchema={
+                    "type": "object",
+                    "properties": {"scenario": {"type": "string"}, "details": {"type": "object"}},
+                    "required": ["scenario"],
+                },
+            ),
+            types.Tool(
+                name="check_pending_approvals",
+                description="List pending approvals that require human action (read-only).",
+                inputSchema={"type": "object", "properties": {}},
+            ),
+            types.Tool(
                 name="get_audit_log",
                 description="View governance audit log of all AI actions.",
                 inputSchema={"type": "object", "properties": {"last_n": {"type": "integer", "description": "Number of entries (default 20)"}}},
@@ -74,6 +88,16 @@ async def main() -> None:
                 from src.tools.prism_tool import check_prism_pipelines
 
                 result = check_prism_pipelines()
+            elif name == "generate_human_alert":
+                from src.alert_tool import generate_human_alert
+
+                scenario = arguments.get("scenario")
+                details = arguments.get("details", {})
+                result = generate_human_alert(scenario, details)
+            elif name == "check_pending_approvals":
+                from src.alert_tool import check_pending_approvals
+
+                result = check_pending_approvals()
             elif name == "check_extend_apps":
                 from src.tools.extend_tool import check_extend_apps
 

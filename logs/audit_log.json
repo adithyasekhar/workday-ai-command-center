@@ -1,0 +1,58 @@
+[
+  {
+    "timestamp": "2026-05-25T07:04:04.567871",
+    "event_type": "ACTION_ALLOWED",
+    "action": "read_integration_status",
+    "triggered_by": "claude_mcp",
+    "details": "Read-only action permitted",
+    "ai_principle": "READ_ONLY_ALERT_ONLY"
+  },
+  {
+    "timestamp": "2026-05-25T07:04:59.561360",
+    "event_type": "ACTION_ALLOWED",
+    "action": "read_integration_status",
+    "triggered_by": "claude_mcp",
+    "details": "Read-only action permitted",
+    "ai_principle": "READ_ONLY_ALERT_ONLY"
+  },
+  {
+    "timestamp": "2026-05-25T07:04:59.562897",
+    "event_type": "FAILURE_ANALYZED_AND_NOTIFIED",
+    "action": "Benefits_Feed_ADP",
+    "triggered_by": "claude_mcp",
+    "details": "SFTP connection refused at host 10.0.0.45:22",
+    "ai_principle": "READ_ONLY_ALERT_ONLY"
+  },
+  {
+    "timestamp": "2026-05-25T07:04:59.563268",
+    "event_type": "FAILURE_ANALYZED_AND_NOTIFIED",
+    "action": "Org_Chart_Sync",
+    "triggered_by": "claude_mcp",
+    "details": "3 records skipped \u2014 missing manager field",
+    "ai_principle": "READ_ONLY_ALERT_ONLY"
+  },
+  {
+    "timestamp": "2026-05-25T07:06:59.725884",
+    "event_type": "ACTION_ALLOWED",
+    "action": "read_integration_status",
+    "triggered_by": "claude_mcp",
+    "details": "Read-only action permitted",
+    "ai_principle": "READ_ONLY_ALERT_ONLY"
+  },
+  {
+    "timestamp": "2026-05-25T07:06:59.730290",
+    "event_type": "FAILURE_ANALYZED_AND_NOTIFIED",
+    "action": "Benefits_Feed_ADP",
+    "triggered_by": "claude_mcp",
+    "details": "SFTP connection refused at host 10.0.0.45:22",
+    "ai_principle": "READ_ONLY_ALERT_ONLY"
+  },
+  {
+    "timestamp": "2026-05-25T07:06:59.730708",
+    "event_type": "FAILURE_ANALYZED_AND_NOTIFIED",
+    "action": "Org_Chart_Sync",
+    "triggered_by": "claude_mcp",
+    "details": "3 records skipped \u2014 missing manager field",
+    "ai_principle": "READ_ONLY_ALERT_ONLY"
+  }
+]
