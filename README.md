@@ -1,6 +1,5 @@
 # workday-ai-command-center
 Multi-AI Workday monitoring platform — Claude + GPT-4 + Gemini with governance
-# orkday AI Command Center
 ### The World's First Multi-AI Governed Monitoring Platform for Workday
 ---
  The Problem This Solves
